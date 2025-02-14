@@ -38,19 +38,19 @@
     <section id="projects" class="p-12">
         <h2 class="text-3xl font-bold text-center mb-6">Projects</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <a href="https://mbbs-abroad-kohl.vercel.app" target="_blank" class="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition-transform transform hover:scale-105">
+            <a href="https://mbbs-abroad-kohl.vercel.app" target="_blank" class="project-card">
                 <h3 class="text-xl font-semibold">Study MBBS Abroad</h3>
                 <p class="text-gray-400">A responsive landing page for University Insights.</p>
             </a>
-            <a href="https://amazon-clone-gilt-sigma.vercel.app" target="_blank" class="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition-transform transform hover:scale-105">
+            <a href="https://amazon-clone-gilt-sigma.vercel.app" target="_blank" class="project-card">
                 <h3 class="text-xl font-semibold">Amazon Clone</h3>
                 <p class="text-gray-400">A front page clone of Amazon using HTML, CSS, and JavaScript.</p>
             </a>
-            <a href="https://to-do-eosin-five.vercel.app" target="_blank" class="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition-transform transform hover:scale-105">
+            <a href="https://to-do-eosin-five.vercel.app" target="_blank" class="project-card">
                 <h3 class="text-xl font-semibold">To Do List</h3>
-                <p class="text-gray-400">Built a responsive To-Do List website using Html,Css,JavaScript!</p>
+                <p class="text-gray-400">Built a responsive To-Do List website using HTML, CSS, JavaScript!</p>
             </a>
-            <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-gray-700 transition-transform transform hover:scale-105">
+            <div class="project-card">
                 <h3 class="text-xl font-semibold">Coming Soon</h3>
                 <p class="text-gray-400">Another exciting project is on the way!</p>
             </div>
@@ -69,60 +69,21 @@
     </section>
     
     <!-- Chatbot -->
-    <div id="chatbot" class="fixed bottom-5 right-5 w-64 bg-gray-800 p-4 rounded-lg shadow-lg hidden">
-        <div class="flex justify-between items-center mb-2">
+    <div id="chatbot" class="chatbot hidden">
+        <div class="chatbot-header">
             <h3 class="text-lg font-bold">Chatbot</h3>
             <button onclick="toggleChatbot()" class="text-red-500">&times;</button>
         </div>
-        <div id="chatbox" class="h-40 overflow-y-auto p-2 bg-gray-700 rounded text-sm"></div>
-        <input type="text" id="userInput" class="w-full p-2 mt-2 rounded bg-gray-600 text-white" placeholder="Ask a question..." onkeypress="handleKeyPress(event)">
+        <div id="chatbox" class="chatbox-content"></div>
+        <input type="text" id="userInput" class="chatbox-input" placeholder="Ask a question..." onkeypress="handleKeyPress(event)">
     </div>
-    <button onclick="toggleChatbot()" class="fixed bottom-5 right-5 bg-blue-600 p-3 rounded-full shadow-lg">💬</button>
+    <button onclick="toggleChatbot()" class="chatbot-toggle">💬</button>
     
-    <script>
-        function toggleChatbot() {
-            document.getElementById('chatbot').classList.toggle('hidden');
-        }
-        function handleKeyPress(event) {
-            if (event.key === 'Enter') {
-                let userInput = document.getElementById('userInput').value.trim().toLowerCase();
-                document.getElementById('chatbox').innerHTML += `<p class='text-blue-400'>You: ${userInput}</p>`;
-                document.getElementById('userInput').value = '';
-                botResponse(userInput);
-            }
-        }
-        function botResponse(input) {
-            let responses = {
-                'hello': 'Hi there! How can I help?',
-                'who are you': 'I am a chatbot created for Ritik Sharma\'s portfolio.',
-                'contact': 'You can reach Ritik at ritik.sh54321@gmail.com.',
-                'projects': 'Ritik has worked on Study MBBS Abroad and an Amazon Clone.',
-                'bye': 'Goodbye! Have a great day!'
-            };
-            let response = responses[input] || "I'm not sure about that. Try asking about 'projects' or 'contact'.";
-            document.getElementById('chatbox').innerHTML += `<p class='text-green-400'>Bot: ${response}</p>`;
-        }
-   </script>
-  <script>
-   // Dark Mode Toggle
-        function toggleDarkMode() {
-            document.body.classList.toggle('bg-white');
-            document.body.classList.toggle('text-black');
-        }
-        
-        // Typed.js Effect
-        document.addEventListener("DOMContentLoaded", function () {
-            new Typed("#typed", {
-                strings: ["Hi, I'm Ritik Sharma", "A Passionate Developer", "Building Responsive Websites", "A Tech Enthusiast"],
-                typeSpeed: 50,
-                backSpeed: 30,
-                loop: true
-            });
-        });
-    </script>
+    <script src="script.js"></script>
+
     <!-- Footer -->
     <footer class="p-4 text-center bg-gray-800">
-        <p class="text-gray-400">&copy; 2025 Ritik Sharma | Built with Html, Css, JavaScript</p>
+        <p class="text-gray-400">&copy; 2025 Ritik Sharma | Built with HTML, CSS, JavaScript</p>
     </footer>
 </body>
 </html>
